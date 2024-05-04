@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Clean workspace before each build
-                    sh 'rm -rf *' // Remove all files and directories in the workspace
+                    sh 'sudo rm -rf *' // Remove all files and directories in the workspace
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
+        git branch: 'main', url: 'https://github.com/VinitPatil01/cicd-project.git'
       }
     }
     stage('Build and Test') {
