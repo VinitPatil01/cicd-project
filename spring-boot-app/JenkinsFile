@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Clean workspace before each build
-                    sh 'sudo rm -rf *' // Remove all files and directories in the workspace
+                    sh 'rm -rf *' // Remove all files and directories in the workspace
                 }
             }
         }
