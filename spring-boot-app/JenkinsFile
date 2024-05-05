@@ -7,20 +7,20 @@ pipeline {
   }
   stages {
 
-        stage('Workspace Cleanup') {
-            steps {
-                script {
-                    // Clean workspace before each build
-                    sh 'rm -rf *' // Remove all files and directories in the workspace
-                }
-            }
-        }
+        // stage('Workspace Cleanup') {
+        //     steps {
+        //         script {
+        //             // Clean workspace before each build
+        //             sh 'rm -rf *' // Remove all files and directories in the workspace
+        //         }
+        //     }
+        // }
    
 
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        git branch: 'main', url: 'https://github.com/VinitPatil01/cicd-project.git'
+        //git branch: 'main', url: 'https://github.com/VinitPatil01/cicd-project.git'
       }
     }
     stage('Build and Test') {
@@ -32,7 +32,7 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://18.209.225.128:9000"
+        SONAR_URL = "http://100.26.163.187:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
